@@ -5,6 +5,7 @@ import { Pagination, Navigation } from 'swiper';
 // style imports & local
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import '../slider.css';
 
 // components
@@ -22,11 +23,11 @@ const ProductSlider = ({ data }) => {
           spaceBetween: 30,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 30,
         },
         1440: {
