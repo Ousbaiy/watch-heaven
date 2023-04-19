@@ -12,9 +12,10 @@ const Search = () => {
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get('query');
 
-  // product based on search
+  // product by title and category title
   const { data } = useFetch(
-    `/products?populate=*&filters[title][$contains]=${searchTerm}`
+    `/products?populate=*&filters[title][$contains]=${searchTerm}` &&
+      `/products?populate=*&filters[categories][title]=${searchTerm}`
   );
 
   return (

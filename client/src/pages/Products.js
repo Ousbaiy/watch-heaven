@@ -24,7 +24,7 @@ const Products = () => {
   return (
     <div className="mb-16 pt-48 lg:pt-0">
       <div className="container mx-auto">
-        <div className="flex gap-x-[30px]">
+        <div className="lg:flex gap-x-[30px]">
           <CategoryNav />
           <main>
             {/* title  */}
