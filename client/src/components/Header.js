@@ -7,7 +7,6 @@ import Logo from '../img/logo-dark.png';
 // library
 import { SlBag } from 'react-icons/sl';
 import { CiMenuFries } from 'react-icons/ci';
-import { FiMenu } from 'react-icons/fi';
 
 // components
 import SearchForm from '../components/SearchForm';
@@ -18,7 +17,7 @@ import Cart from '../components/Cart';
 import { CartContext } from '../context/CartContext';
 
 const Header = () => {
-  const { isOpen, setIsOpen } = useContext(CartContext);
+  const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
 
   return (
@@ -30,7 +29,7 @@ const Header = () => {
             onClick={() => setCatNavMobile(true)}
             className="text-3xl xl:hidden cursor-pointer"
           >
-            <FiMenu />
+            <CiMenuFries />
           </div>
           {/* cat nav mobile  */}
           <div
@@ -59,7 +58,7 @@ const Header = () => {
           >
             <SlBag className="text-2xl" />
             <div className="bg-accent text-primary absolute w-[18px] h-[18px] rounded-full top-3 -right-1 text-[13px] flex justify-center items-center font-bold tracking-[0.1em]">
-              1
+              {itemsAmount}
             </div>
           </div>
           {/* cart  */}

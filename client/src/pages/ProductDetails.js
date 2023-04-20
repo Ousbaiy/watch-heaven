@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 // custom hook
@@ -11,6 +11,7 @@ import RelatedProducts from '../components/RelatedProducts';
 import { CartContext } from '../context/CartContext';
 
 const ProductDetails = () => {
+  const { addToCart } = useContext(CartContext)
   const { id } = useParams();
   // get product by id
   const { data } = useFetch(`products?populate=*&filters[id][$eq]=${id}`);
@@ -41,7 +42,7 @@ const ProductDetails = () => {
             <p className='mb-12'>{data[0].attributes.description}</p>
             <div className="flex items-center gap-x-4 lg:gap-x-8">
               <p className='text-accent text-xl lg:text-3xl font-semibold'>${data[0].attributes.price}</p>
-              <button className="btn btn-accent">Add to cart</button>
+              <button onClick={() => addToCart(data, id)} className="btn btn-accent">Add to cart</button>
             </div>
           </div>
         </div>
