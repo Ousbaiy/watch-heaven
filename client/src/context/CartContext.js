@@ -18,6 +18,16 @@ const CartProvider = ({ children }) => {
     setItemsAmount(amount);
   }, [cart]);
 
+  // cart total
+  useEffect(() => {
+    const total = cart
+      .reduce((a, c) => {
+        return a + c.attributes.price * c.amount;
+      }, 0)
+      .toFixed(2);
+    setTotal(total);
+  }, [cart]);
+
   // add to card
   const addToCart = (item, id) => {
     const itemID = parseInt(id);
@@ -117,8 +127,10 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         clearCart,
         itemsAmount,
+        amount,
         handleInput,
         handleSelect,
+        total,
       }}
     >
       {children}
