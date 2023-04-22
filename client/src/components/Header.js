@@ -6,7 +6,7 @@ import Logo from '../img/logo-dark.png';
 
 // library
 import { SlBag } from 'react-icons/sl';
-import { CiMenuFries } from 'react-icons/ci';
+import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 
 // components
 import SearchForm from '../components/SearchForm';
@@ -29,7 +29,7 @@ const Header = () => {
             onClick={() => setCatNavMobile(true)}
             className="text-3xl xl:hidden cursor-pointer"
           >
-            <CiMenuFries />
+            <HiOutlineMenuAlt1 />
           </div>
           {/* cat nav mobile  */}
           <div
