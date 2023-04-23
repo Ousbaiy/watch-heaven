@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 // library
 import { IoArrowForward, IoClose, IoCartOutline } from 'react-icons/io5';
@@ -9,8 +9,36 @@ import { CartContext } from '../context/CartContext';
 // component
 import CartItem from '../components/CartItem';
 
+// stripe
+import { loadStripe } from '@stripe/stripe-js';
+import { request } from '../request';
+
 const Cart = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+
   const { setIsOpen, cart, total, clearCart } = useContext(CartContext);
+  const stripePromise = loadStripe(
+    'pk_test_51Mzji4HdycjwmCXnrWqV4JEQhNj5DLCSyTJIQQ4HkcBFuSLPacwIHn5ow63V2CH1AsMMAenCGZXPojveef0RhIql006dMKIqzQ'
+  );
+  const handlePayment = async () => {
+    setIsLoading(true);
+    try {
+      const stripe = await stripePromise;
+      const res = await request.post('/orders', {
+        cart,
+      });
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (error) {
+      console.log(error.message);
+      setShowError(true);
+      throw new error('Please try later');
+    }
+    setIsLoading(false);
+  };
+
   return (
     <div className="w-full h-full px-4 text-white flex flex-col gap-y-4">
       <div
@@ -29,6 +57,11 @@ const Cart = () => {
             </div>
             {/* subtotal & total  */}
           </div>
+          {showError && (
+            <p className="text-center text-red-500 text-xl ">
+              Error: Please try later
+            </p>
+          )}
           {cart.length >= 1 && (
             <div className="px-2 py-6">
               <div className="flex justify-between items-center mb-4">
@@ -48,8 +81,13 @@ const Cart = () => {
                 >
                   clear cart
                 </button>
-                <button className="btn btn-accent hover:bg-accent-hover text-primary flex-1 px-2 gap-x-2">
-                  chekout <IoArrowForward className="text-lg" />
+                <button
+                  onClick={handlePayment}
+                  className="btn btn-accent hover:bg-accent-hover text-primary flex-1 px-2 gap-x-2 disabled:opacity-50 disabled:cursor-no-drop"
+                  disabled={isLoading || showError}
+                >
+                  {isLoading ? 'Processing...' : 'chekout'}{' '}
+                  <IoArrowForward className="text-lg" />
                 </button>
               </div>
             </div>

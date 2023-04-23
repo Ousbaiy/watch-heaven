@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   // get product by id
   const { data } = useFetch(`products?populate=*&filters[id][$eq]=${id}`);
-  if (!data) return <div className="container mx-auto">loading...</div>;
+  if (!data) return <div className="container mx-auto h-[500px] flex items-center justify-center text-3xl">loading...</div>;
   // category title
   const categoryTitle = data[0].attributes.categories.data[0].attributes.title
 
