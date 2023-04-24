@@ -34,7 +34,7 @@ const Cart = () => {
     } catch (error) {
       console.log(error.message);
       setShowError(true);
-      throw new error('Please try later');
+      throw new Error('Please try later');
     }
     setIsLoading(false);
   };
