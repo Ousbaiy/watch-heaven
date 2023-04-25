@@ -1,13 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // library
 import { IoBagCheckOutline } from 'react-icons/io5';
 import { runFireworks } from '../lib/utils';
 
+// context
+import { CartContext } from '../context/CartContext';
+
 const Success = () => {
+  const { setCart } = useContext(CartContext);
+
   useEffect(() => {
+    localStorage.clear();
+    setCart([]);
     runFireworks();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

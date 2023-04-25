@@ -2,12 +2,20 @@ import React, { createContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
 
+const CartLocalStorage = JSON.parse(localStorage.getItem("cart"));
+
+
 const CartProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(CartLocalStorage || []);
   const [itemsAmount, setItemsAmount] = useState(0);
   const [amount, setAmount] = useState(0);
   const [total, setTotal] = useState(0);
+  
+  // save in local storage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   // cart amount
   useEffect(() => {
@@ -123,6 +131,7 @@ const CartProvider = ({ children }) => {
         isOpen,
         setIsOpen,
         addToCart,
+        setCart,
         cart,
         removeFromCart,
         clearCart,
