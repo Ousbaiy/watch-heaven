@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 // library
-import { IoArrowForward, IoClose, IoCartOutline } from 'react-icons/io5';
+import { IoArrowForward, IoCartOutline, IoClose } from 'react-icons/io5';
 
 // context
 import { CartContext } from '../context/CartContext';
