@@ -1,5 +1,4 @@
 # watch-heaven
-# Watch Heaven - Online Watch Store 
 This is a website for Watch Heaven, an online store that specializes in selling high-quality watches for men and women. The website was created using React, Tailwind CSS, React Icons, Strapi, and Stripe.
 
 ## Features
