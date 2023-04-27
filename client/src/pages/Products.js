@@ -18,7 +18,7 @@ const Products = () => {
   useEffect(() => {
     if (data) {
       setTitle(data[0].attributes.categories.data[0].attributes.title)
-    }
+    } 
   }, [data])
 
   return (

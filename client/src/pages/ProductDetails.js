@@ -10,16 +10,25 @@ import RelatedProducts from '../components/RelatedProducts';
 // context
 import { CartContext } from '../context/CartContext';
 
+// loader
+import { SpinnerInfinity } from 'spinners-react';
+
 const ProductDetails = () => {
-  const { addToCart } = useContext(CartContext)
+  const { addToCart } = useContext(CartContext);
   const { id } = useParams();
   // get product by id
   const { data } = useFetch(`products?populate=*&filters[id][$eq]=${id}`);
-  if (!data) return <div className="container mx-auto h-[500px] flex items-center justify-center text-3xl">loading...</div>;
+  if (!data)
+    return (
+      <div className="container mx-auto h-[500px]">
+        <div className="h-screen fixed inset-0 bg-black/90 z-40 flex items-center justify-center">
+          <SpinnerInfinity color="white" size={70} />
+        </div>
+        ;
+      </div>
+    );
   // category title
-  const categoryTitle = data[0].attributes.categories.data[0].attributes.title
-
-
+  const categoryTitle = data[0].attributes.categories.data[0].attributes.title;
 
   return (
     <div className="mb-16 pt-48 lg:pt-[30px] xl:pt-0">
@@ -38,11 +47,18 @@ const ProductDetails = () => {
               {categoryTitle} watches
             </p>
             {/* title  */}
-            <h2 className='h2 mb-4'>{data[0].attributes.title}</h2>
-            <p className='mb-12'>{data[0].attributes.description}</p>
+            <h2 className="h2 mb-4">{data[0].attributes.title}</h2>
+            <p className="mb-12">{data[0].attributes.description}</p>
             <div className="flex items-center gap-x-4 lg:gap-x-8">
-              <p className='text-accent text-xl lg:text-3xl font-semibold'>${data[0].attributes.price}</p>
-              <button onClick={() => addToCart(data, id)} className="btn btn-accent">Add to cart</button>
+              <p className="text-accent text-xl lg:text-3xl font-semibold">
+                ${data[0].attributes.price}
+              </p>
+              <button
+                onClick={() => addToCart(data, id)}
+                className="btn btn-accent"
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>

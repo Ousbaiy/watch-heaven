@@ -10,7 +10,7 @@ import Product from '../components/Product';
 const Search = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const searchTerm = searchParams.get('query');
+  const searchTerm = searchParams.get('query').toLocaleLowerCase();
 
   // product by title and category title
   const { data } = useFetch(

@@ -22,3 +22,34 @@
     @apply h-[50px] rounded-[8px] w-full outline-none px-6 text-primary;
   }
 }
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1D1F23;
+  border-radius: 14px;
+  border: 3px solid #1D1F23;
+}
+
+@media (max-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+}
+
+::selection {
+  background-color: #1D1F23;
+  color: #F6CD46;
+}
+
+img {
+  user-select: none;
+}
