@@ -1,10 +1,9 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { Suspense, lazy, useEffect } from 'react';
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom';
+
+import { SpinnerDiamond } from 'spinners-react';
 
 // pages
-import Home from './pages/Home';
-import Products from './pages/Products';
-import ProductDetails from './pages/ProductDetails';
-import Search from './pages/Search';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import NotFound from './pages/NotFound';
@@ -13,11 +12,34 @@ import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// Lazy laod
+const Home = lazy(() => import('./pages/Home'));
+const Products = lazy(() => import('./pages/Products'));
+const ProductDetails = lazy(() => import('./pages/ProductDetails'));
+const Search = lazy(() => import('./pages/Search'));
+
 const Layout = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+
   return (
-    <div>
+    <div className="flex flex-col min-h-[150vh]">
       <Header />
-      <Outlet />
+      <div className="flex-grow">
+        <Suspense
+          fallback={
+            <div className="h-screen fixed inset-0 bg-black/70 z-40 flex items-center justify-center">
+              <SpinnerDiamond color="white" size={70} />
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
+      </div>
       <Footer />
     </div>
   );

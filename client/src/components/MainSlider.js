@@ -28,7 +28,7 @@ const MainSlider = () => {
       <>
         {sliderData.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="flex flex-col lg:flex-row gap-y-[15px] lg:gap-x-[30px] items-center w-full h-full p-[20px] md:p-[60px] md:pr-[5px]">
+            <div className="flex flex-col lg:flex-row gap-y-[15px] lg:gap-x-[30px] items-center w-full h-full p-[20px] lg:p-[60px] md:pr-[5px]">
               <div className="flex-1">
                 <h2 className="uppercase mb-1 text-center lg:text-left">
                   {slide.preTitle}

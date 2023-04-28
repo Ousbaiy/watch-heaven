@@ -21,8 +21,8 @@ const ProductDetails = () => {
   if (!data)
     return (
       <div className="container mx-auto h-[500px]">
-        <div className="h-screen fixed inset-0 bg-black/90 z-40 flex items-center justify-center">
-          <SpinnerInfinity color="white" size={70} />
+        <div className="h-screen fixed inset-0 bg-black/70 z-40 flex items-center justify-center">
+          <SpinnerInfinity color="white" />
         </div>
         ;
       </div>
