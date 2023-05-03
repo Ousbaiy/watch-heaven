@@ -4,7 +4,7 @@ const Product = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="grad w-fill h-[360px] rounded-[8px] overflow-hidden relative group">
+      <div className="grad dark:grad-dark w-fill h-[360px] rounded-[8px] overflow-hidden relative group">
         {/* badge */}
         {product.attributes.isNew && (
           <div className="absolute top-4 right-4 bg-accent text-primary text-[12px] font-extrabold uppercase px-2 rounded-full z-10">

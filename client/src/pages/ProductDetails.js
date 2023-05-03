@@ -34,14 +34,14 @@ const ProductDetails = () => {
     <div className="mb-16 pt-48 lg:pt-[30px] xl:pt-0">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row gap-[30px] mb-[30px]">
-          <div className="flex-1 h-[540px] grad rounded-lg flex justify-center items-center py-10 lg:py-0">
+          <div className="flex-1 h-[540px] grad dark:grad-dark rounded-lg flex justify-center items-center py-10 lg:py-0">
             <img
               src={`http://localhost:1337${data[0].attributes.image.data.attributes.url}`}
               alt={data[0].attributes.title}
               className="h-[250px] w-[250px] object-contain"
             />
           </div>
-          <div className="flex-1 bg-primary p-8 xl:p-20 rounded-lg flex flex-col justify-center">
+          <div className="flex-1 bg-white dark:bg-primary p-8 xl:p-20 rounded-lg flex flex-col justify-center">
             {/* cat title  */}
             <p className="text-accent uppercase text-lg font-medium mb-2">
               {categoryTitle} watches

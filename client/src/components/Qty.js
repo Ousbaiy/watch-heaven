@@ -5,7 +5,7 @@ import { CartContext } from '../context/CartContext';
 const Qty = ({ item }) => {
   const { handleInput, handleSelect } = useContext(CartContext);
   return (
-    <div className="text-primary">
+    <div className="text-primary shadow-md rounded-md">
       {item.amount < 10 ? (
         <select
           onChange={(e) => handleSelect(e, item.id)}

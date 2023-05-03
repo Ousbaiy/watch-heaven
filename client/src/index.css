@@ -4,12 +4,15 @@
 
 @layer base {
   body {
-    @apply font-primary bg-body text-white;
+    @apply font-primary bg-white text-primary dark:bg-body dark:text-white;
   }
   .h2 {
     @apply text-3xl capitalize;
   }
   .grad {
+    @apply bg-gradient-to-t from-[#f0f4fd] to-[#ffffff] drop-shadow-2xl;
+  }
+  .grad-dark {
     @apply bg-gradient-to-t from-[#1F2126] to-[#33363D] drop-shadow-2xl;
   }
   .btn {

@@ -40,10 +40,10 @@ const Cart = () => {
   };
 
   return (
-    <div className="w-full h-full px-4 text-white flex flex-col gap-y-4">
+    <div className="w-full h-full px-4 bg-white dark:bg-primary text-primary dark:text-white flex flex-col gap-y-4">
       <div
         onClick={() => setIsOpen(false)}
-        className="w-20 h-[90px] flex justify-start items-center cursor-pointer"
+        className="w-20 h-[90px] flex justify-start items-center cursor-pointer relative z-20"
       >
         <IoClose className="text-4xl" />
       </div>
@@ -94,7 +94,7 @@ const Cart = () => {
           )}
         </>
       ) : (
-        <div className="absolute inset-0 w-full h-full flex flex-col justify-center items-center text-white/30 -z-10">
+        <div className="absolute inset-0 w-full h-full flex flex-col justify-center items-center text-primary/70 dark:text-white/30">
           <div className="text-6xl">
             <IoCartOutline />
           </div>

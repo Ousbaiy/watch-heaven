@@ -11,7 +11,7 @@ const CategoryNavMobile = ({ setCatNavMobile }) => {
   const { data } = useFetch('/categories');
 
   return (
-    <div className="w-full h-full bg-primary p-8">
+    <div className="w-full h-full bg-white dark:bg-primary p-8">
       <div
         onClick={() => setCatNavMobile(false)}
         className="flex justify-end mb-8 cursor-pointer"

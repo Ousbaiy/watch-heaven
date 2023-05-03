@@ -23,7 +23,7 @@ const MainSlider = () => {
         delay: 5000,
         disableOnInteraction: false,
       }}
-      className="mainSlider h-full bg-primary xl:bg-mainSlider xl:bg-no-repeat max-w-lg lg:max-w-none rounded-[8px] overflow-hidden drop-shadow-2xl"
+      className="mainSlider h-full bg-white dark:bg-primary dark:xl:bg-mainSlider xl:bg-no-repeat max-w-lg lg:max-w-none rounded-[8px] overflow-hidden drop-shadow-2xl"
     >
       <>
         {sliderData.map((slide) => (

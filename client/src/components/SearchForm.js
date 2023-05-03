@@ -37,7 +37,7 @@ const SearchForm = () => {
       onSubmit={handleSubmit}
       className={`${
         isAnimating ? 'animate-shake' : 'animate-none'
-      } relative w-full`}
+      } relative w-full border-primary border-[1px] rounded-md`}
     >
       <input
         type="text"

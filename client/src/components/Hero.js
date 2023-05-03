@@ -21,7 +21,7 @@ const Hero = () => {
           </div>
           {/* promos */}
           <div className="flex flex-col gap-y-[30px] w-full max-w-lg mx-auto h-[500px]">
-            <div className="grad flex-1 h-[250px] rounded-[8px] overflow-hidden relative p-6 flex justify-between">
+            <div className="grad dark:grad-dark flex-1 h-[250px] rounded-[8px] overflow-hidden relative p-6 flex justify-between">
               <div className="flex flex-col max-w-[160px] h-full justify-center ">
                 <div className="text-[20px] uppercase font-medium leading-tight mb-4">
                   save 35% all casio watches
@@ -34,7 +34,7 @@ const Hero = () => {
                 alt="promo watch"
               />
             </div>
-            <div className="grad flex-1 h-[250px] rounded-[8px] overflow-hidden relative p-6 flex justify-between">
+            <div className="grad dark:grad-dark flex-1 h-[250px] rounded-[8px] overflow-hidden relative p-6 flex justify-between">
               <div className="flex flex-col max-w-[160px] h-full justify-center ">
                 <div className="text-[20px] uppercase font-medium leading-tight mb-4">
                   save 25% all rolex watches
