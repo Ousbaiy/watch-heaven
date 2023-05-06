@@ -5,7 +5,7 @@ import { IoBugOutline } from 'react-icons/io5';
 
 const NotFound = () => {
   return (
-    <div className="h-[600px] flex flex-col items-center justify-center gap-y-4">
+    <div className="h-[600px] flex flex-col items-center justify-center gap-y-4 pt-40 lg:pt-0">
       <div className='flex items-center gap-x-5 text-[85px]'>
         <span><IoBugOutline /></span>
         <span>404</span>

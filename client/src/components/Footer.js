@@ -15,7 +15,7 @@ const Footer = () => {
     <footer className="pt-16 text-primary dark:bg-primary border-t border-primary/30">
       <div className="container mx-auto">
         <div className='text-center'>
-          <h2 className='h2 uppercase mb-6 font-semibold'>Subscribe to our newsletter</h2>
+          <h2 className='h2 uppercase mb-6 font-semibold dark:text-white'>Subscribe to our newsletter</h2>
           <p className='text-primary/60 dark:text-white/70'>
             be the first to get the latest news about trends, promotions and
             much more!

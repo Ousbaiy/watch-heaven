@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // images
@@ -18,30 +18,13 @@ import Cart from '../components/Cart';
 // context
 import { CartContext } from '../context/CartContext';
 
+// custom hook
+import useTheme from "../hooks/useTheme";
+
 const Header = () => {
   const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
-  const [theme, setTheme] = useState(null);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const [theme, toggleTheme] = useTheme();
 
   return (
     <header className="bg-white dark:bg-primary py-6 fixed w-full top-0 z-40 lg:relative xl:mb-[30px] shadow-xl dark:shadow">
@@ -86,10 +69,7 @@ const Header = () => {
               </div>
             </div>
             {/* theme  */}
-            <div
-              className="text-3xl cursor-pointer"
-              onClick={handleThemeSwitch}
-            >
+            <div className="text-3xl cursor-pointer" onClick={toggleTheme}>
               {theme === 'dark' ? <HiOutlineSun /> : <HiOutlineMoon />}
             </div>
           </div>

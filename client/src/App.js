@@ -1,7 +1,12 @@
 import { Suspense, lazy, useEffect } from 'react';
-import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useLocation,
+} from 'react-router-dom';
 
-import { SpinnerDiamond } from 'spinners-react';
+import { SpinnerInfinity } from 'spinners-react';
 
 // pages
 import Success from './pages/Success';
@@ -25,7 +30,6 @@ const Layout = () => {
     window.scrollTo(0, 0);
   }, [location]);
 
-
   return (
     <div className="flex flex-col min-h-[150vh]">
       <Header />
@@ -33,7 +37,7 @@ const Layout = () => {
         <Suspense
           fallback={
             <div className="h-screen fixed inset-0 bg-black/70 z-40 flex items-center justify-center">
-              <SpinnerDiamond color="white" size={70} />
+              <SpinnerInfinity color="white" size={70} />
             </div>
           }
         >
