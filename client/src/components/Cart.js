@@ -43,9 +43,9 @@ const Cart = () => {
     <div className="w-full h-full px-4 bg-white dark:bg-primary text-primary dark:text-white flex flex-col gap-y-4">
       <div
         onClick={() => setIsOpen(false)}
-        className="w-20 h-[90px] flex justify-start items-center cursor-pointer relative z-20"
+        className="w-20 h-[90px] flex justify-start items-center relative z-20"
       >
-        <IoClose className="text-4xl" />
+        <IoClose className="text-4xl cursor-pointer" />
       </div>
       {cart.length !== 0 ? (
         <>
